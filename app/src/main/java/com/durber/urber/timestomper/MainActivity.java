@@ -3,6 +3,7 @@ package com.durber.urber.timestomper;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,7 +16,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,12 +56,14 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        Log.d(TAG, "onCreateOptionsMenu: ----");
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "onOptionsItemSelected: ----");
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -82,15 +85,17 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            Log.d(TAG, "onNavigationItemSelected: Camera");
         } else if (id == R.id.nav_gallery) {
-
+            Log.d(TAG, "onNavigationItemSelected: gallery");
         } else if (id == R.id.nav_slideshow) {
-
+            Log.d(TAG, "onNavigationItemSelected: slideshow");
         } else if (id == R.id.nav_manage) {
-
+            Log.d(TAG, "onNavigationItemSelected: manage");
         } else if (id == R.id.nav_share) {
-
+            Log.d(TAG, "onNavigationItemSelected: share");
         } else if (id == R.id.nav_send) {
+            Log.d(TAG, "onNavigationItemSelected: send");
 
         }
 
