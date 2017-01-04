@@ -2,14 +2,15 @@ package com.durber.urber.timestomper.Database;
 
 import android.provider.BaseColumns;
 
-public final class TimeStamp
+
+public final class DataBaseContract
 {
     // To prevent someone from accidentally instantiating the contract class,
     // make the constructor private.
-    private TimeStamp() {}
+    private DataBaseContract() {}
 
     /* Inner class that defines the table contents */
-    public static class Table implements BaseColumns
+    public static class TimeStampTable implements BaseColumns
     {
         public static final String NAME = "TimpeStamp";
         public static final String COLUMN_INTIME = "intime";
@@ -22,7 +23,7 @@ public final class TimeStamp
                     _ID + " INTEGER PRIMARY KEY," +
                     COLUMN_INTIME + " TEXT," +
                     COLUMN_OUTTIME + " TEXT," +
-                    COLUMN_OUTTIME + " TEXT)";
+                    COLUMN_TOTALTIME + " TEXT)";
         }
 
         public static final String getSqlDeleteEntries()
