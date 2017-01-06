@@ -17,15 +17,33 @@ import android.view.MenuItem;
 import com.durber.urber.timestomper.R;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+{
     private static final String TAG = "MainActivity";
+    MainActivityNavigationItemSelectedListener m_navItemSelectedListener;
+
+    MainActivity()
+    {
+        m_navItemSelectedListener = new MainActivityNavigationItemSelectedListener(this);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        createFloatingButton();
+
+        createDrawer(toolbar);
+
+        createNavigationView();
+    }
+
+
+
+    private void createFloatingButton() {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingAddButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,16 +52,21 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+    }
 
+    private void createDrawer(Toolbar toolbar) {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
+                drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
     }
+
+    private void createNavigationView() {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(m_navItemSelectedListener);
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -79,30 +102,5 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-            Log.d(TAG, "onNavigationItemSelected: Camera");
-        } else if (id == R.id.nav_gallery) {
-            Log.d(TAG, "onNavigationItemSelected: gallery");
-        } else if (id == R.id.nav_slideshow) {
-            Log.d(TAG, "onNavigationItemSelected: slideshow");
-        } else if (id == R.id.nav_manage) {
-            Log.d(TAG, "onNavigationItemSelected: manage");
-        } else if (id == R.id.nav_share) {
-            Log.d(TAG, "onNavigationItemSelected: share");
-        } else if (id == R.id.nav_send) {
-            Log.d(TAG, "onNavigationItemSelected: send");
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 }
