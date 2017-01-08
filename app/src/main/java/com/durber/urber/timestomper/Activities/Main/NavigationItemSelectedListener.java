@@ -1,4 +1,4 @@
-package com.durber.urber.timestomper.Activities;
+package com.durber.urber.timestomper.Activities.Main;
 
 import android.app.Activity;
 import android.support.design.widget.NavigationView;
@@ -16,11 +16,11 @@ import static android.content.ContentValues.TAG;
  * Created by rober on 2017-01-06.
  */
 
-class MainActivityNavigationItemSelectedListener implements NavigationView.OnNavigationItemSelectedListener
+class NavigationItemSelectedListener implements NavigationView.OnNavigationItemSelectedListener
 {
 
     Activity m_main;
-    MainActivityNavigationItemSelectedListener(Activity mainActivity)
+    NavigationItemSelectedListener(Activity mainActivity)
     {
         m_main = mainActivity;
     }
