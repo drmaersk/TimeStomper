@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by rober on 2017-01-08.
  */
 
-public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.ViewHolder> {
+class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.ViewHolder> {
     private ArrayList<String> mDataset;
 
     // Provide a reference to the views for each data item
@@ -51,7 +51,7 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
                                                             int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recyclerview_row, parent, false);
+                .inflate(R.layout.main_recyclerview_row, parent, false);
 
         ViewHolder vh = new ViewHolder(v);
         return vh;

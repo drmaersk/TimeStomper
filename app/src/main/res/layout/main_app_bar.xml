@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/main_content" />
 
     <!-- TODO: change ic_menu_add to better icon -->
     <android.support.design.widget.FloatingActionButton
